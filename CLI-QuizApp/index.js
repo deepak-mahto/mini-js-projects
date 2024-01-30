@@ -1,3 +1,5 @@
+let readlineSync = require("readline-sync");
+
 const database = {
   data: [
     {
@@ -39,7 +41,10 @@ function showQuestionAndOptions(database) {
     for (let key in database.data[i].options) {
       console.log(`${key} - ${database.data[i].options[key]}`);
     }
+    let userAnswer = readlineSync
+      .question("Enter your answer - (a/b/c/d) - ")
+      .toLowerCase();
   }
 }
 
-showQuestionAndOptions();
+showQuestionAndOptions(database);
