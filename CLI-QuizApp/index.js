@@ -1,4 +1,5 @@
 let readlineSync = require("readline-sync");
+let score = 0;
 
 const database = {
   data: [
@@ -38,8 +39,10 @@ const database = {
 function playGame(userAnswer, correctAnswer) {
   if (userAnswer === correctAnswer) {
     console.log("Correct Answer");
+    score++;
   } else {
     console.log("Incorrect Answer");
+    console.log(`Correct Answer is ${correctAnswer}`);
   }
 }
 
@@ -57,3 +60,4 @@ function showQuestionAndOptions(database) {
 }
 
 showQuestionAndOptions(database);
+console.log(`Your Score is ${score}`);
