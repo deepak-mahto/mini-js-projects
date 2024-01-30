@@ -1,5 +1,6 @@
 let readlineSync = require("readline-sync");
 let score = 0;
+let userName = readlineSync.question("What is your name? "); 
 
 const database = {
   data: [
@@ -32,6 +33,23 @@ const database = {
         b: "No",
       },
       correctAnswer: "b",
+    },
+  ],
+};
+
+const leaderBoard = {
+  data: [
+    {
+      name: "Ashish",
+      score: 1,
+    },
+    {
+      name: "Riya",
+      score: 3,
+    },
+    {
+      name: "Jay",
+      score: 2,
     },
   ],
 };
