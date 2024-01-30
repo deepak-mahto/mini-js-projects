@@ -32,3 +32,14 @@ const database = {
     },
   ],
 };
+
+function showQuestionAndOptions(database) {
+  for (let i = 0; i < database.data.length; i++) {
+    console.log(`\nQ${i + 1} - ${database.data[i].question}\n`);
+    for (let key in database.data[i].options) {
+      console.log(`${key} - ${database.data[i].options[key]}`);
+    }
+  }
+}
+
+showQuestionAndOptions();
