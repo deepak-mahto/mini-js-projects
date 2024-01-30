@@ -35,6 +35,14 @@ const database = {
   ],
 };
 
+function playGame(userAnswer, correctAnswer) {
+  if (userAnswer === correctAnswer) {
+    console.log("Correct Answer");
+  } else {
+    console.log("Incorrect Answer");
+  }
+}
+
 function showQuestionAndOptions(database) {
   for (let i = 0; i < database.data.length; i++) {
     console.log(`\nQ${i + 1} - ${database.data[i].question}\n`);
@@ -44,6 +52,7 @@ function showQuestionAndOptions(database) {
     let userAnswer = readlineSync
       .question("Enter your answer - (a/b/c/d) - ")
       .toLowerCase();
+    playGame(userAnswer, database.data[i].correctAnswer);
   }
 }
 
