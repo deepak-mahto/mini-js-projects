@@ -1,6 +1,9 @@
 let readlineSync = require("readline-sync");
+let kuler = require("kuler");
 let score = 0;
-let userName = readlineSync.question("What is your name? "); 
+
+let userName = readlineSync.question("What is your name? ");
+console.log(kuler(`\nHello ${userName} welcome to quizApp.`, "#dc2626"));
 
 const database = {
   data: [
@@ -56,10 +59,10 @@ const leaderBoard = {
 
 function playGame(userAnswer, correctAnswer) {
   if (userAnswer === correctAnswer) {
-    console.log("Correct Answer");
+    console.log(kuker("Correct Answer", "#059669"));
     score++;
   } else {
-    console.log("Incorrect Answer");
+    console.log(kuler("Incorrect Answer", "#b91c1c"));
     console.log(`Correct Answer is ${correctAnswer}`);
   }
 }
@@ -78,16 +81,16 @@ function showQuestionAndOptions(database) {
 }
 
 function showHighScorer(leaderBoard) {
-    leaderBoard.data.push({ name: userName, score: score });
-    let sortedScoreList = leaderBoard.data.sort((a, b) => b.score - a.score);
-    console.log(
-      kuler("\nCheck your position on the Leader Board🎉🎉", "#fde047")
-    );
-    for (let leader of sortedScoreList) {
-      console.log(kuler(`${leader.name} -  Score: ${leader.score}`, "#9333ea"));
-    }
+  leaderBoard.data.push({ name: userName, score: score });
+  let sortedScoreList = leaderBoard.data.sort((a, b) => b.score - a.score);
+  console.log(
+    kuler("\nCheck your position on the Leader Board🎉🎉", "#fde047")
+  );
+  for (let leader of sortedScoreList) {
+    console.log(kuler(`${leader.name} -  Score: ${leader.score}`, "#9333ea"));
   }
+}
 
 showQuestionAndOptions(database);
-console.log(`Your Score is ${score}`);
+console.log(kuler(`Your Score is ${score}`, "#5eead4"));
 showHighScorer(leaderBoard);
