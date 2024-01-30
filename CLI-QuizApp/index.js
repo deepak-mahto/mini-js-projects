@@ -77,5 +77,17 @@ function showQuestionAndOptions(database) {
   }
 }
 
+function showHighScorer(leaderBoard) {
+    leaderBoard.data.push({ name: userName, score: score });
+    let sortedScoreList = leaderBoard.data.sort((a, b) => b.score - a.score);
+    console.log(
+      kuler("\nCheck your position on the Leader Board🎉🎉", "#fde047")
+    );
+    for (let leader of sortedScoreList) {
+      console.log(kuler(`${leader.name} -  Score: ${leader.score}`, "#9333ea"));
+    }
+  }
+
 showQuestionAndOptions(database);
 console.log(`Your Score is ${score}`);
+showHighScorer(leaderBoard);
