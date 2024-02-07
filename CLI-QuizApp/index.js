@@ -59,7 +59,7 @@ const leaderBoard = {
 
 function playGame(userAnswer, correctAnswer) {
   if (userAnswer === correctAnswer) {
-    console.log(kuker("Correct Answer", "#059669"));
+    console.log(kuler("Correct Answer", "#059669"));
     score++;
   } else {
     console.log(kuler("Incorrect Answer", "#b91c1c"));
